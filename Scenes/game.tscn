@@ -1,12 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://dxw2akxmadd72"]
+[gd_scene load_steps=16 format=3 uid="uid://dxw2akxmadd72"]
 
 [ext_resource type="PackedScene" uid="uid://c2irt75jwo8cq" path="res://Scenes/player.tscn" id="1_07r7m"]
 [ext_resource type="Texture2D" uid="uid://ccavsbkpfdjb7" path="res://Assets/sprites/world_tileset.png" id="1_msr73"]
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_oqf1e"]
 [ext_resource type="PackedScene" uid="uid://btjxnnln82oqu" path="res://Scenes/platform.tscn" id="3_w5d82"]
 [ext_resource type="PackedScene" uid="uid://cjccfalxn2gf0" path="res://Scenes/coin.tscn" id="4_4mmvu"]
 [ext_resource type="PackedScene" uid="uid://bn227six5yfp3" path="res://Scenes/killzone.tscn" id="5_6eug3"]
 [ext_resource type="PackedScene" uid="uid://gk6ek40s1uqq" path="res://Scenes/slime.tscn" id="6_ps1f1"]
 [ext_resource type="Texture2D" uid="uid://b5hdyrg0j1l1g" path="res://Assets/sprites/Гриб.png" id="8_nksyw"]
+[ext_resource type="FontFile" uid="uid://dmmt1q1f5xkpg" path="res://Assets/fonts/PixelOperator8.ttf" id="8_qsm3h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ryl0o"]
 texture = ExtResource("1_msr73")
@@ -453,6 +455,24 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
+[node name="CoinsText" type="Label" parent="."]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+offset_left = 95.0
+offset_top = -76.0
+offset_right = 139.0
+offset_bottom = -68.0
+theme_override_fonts/font = ExtResource("8_qsm3h")
+theme_override_font_sizes/font_size = 8
+text = "0 coins"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_oqf1e")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ia14x")
 format = 2
@@ -506,3 +526,27 @@ autoplay = "platform_move"
 
 [node name="Slime" parent="." instance=ExtResource("6_ps1f1")]
 position = Vector2(-60, 32)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -422.0
+offset_top = 42.0
+offset_right = -294.0
+offset_bottom = 65.0
+theme_override_fonts/font = ExtResource("8_qsm3h")
+theme_override_font_sizes/font_size = 8
+text = "Deadzone below"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -155.0
+offset_top = -51.0
+offset_right = -27.0
+offset_bottom = -28.0
+theme_override_fonts/font = ExtResource("8_qsm3h")
+theme_override_font_sizes/font_size = 8
+text = "Space For Jump"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

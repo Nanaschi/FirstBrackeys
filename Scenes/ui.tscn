@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://uvot76i3tau2"]
+
+[ext_resource type="FontFile" uid="uid://dmmt1q1f5xkpg" path="res://Assets/fonts/PixelOperator8.ttf" id="1_wkd00"]
+
+[node name="UI" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinsText" type="Label" parent="."]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 37.0
+offset_top = 26.0
+offset_right = 81.0
+offset_bottom = 34.0
+theme_override_fonts/font = ExtResource("1_wkd00")
+theme_override_font_sizes/font_size = 8
+text = "0 coins"
